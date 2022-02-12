@@ -4,27 +4,41 @@
 #include "history.h"
 #include "tokenizer.h"
 
-
-/* we take user input: a string, using a for loop we determine how many words
- * are in the string, disregarding the white space chars, and echo the string
- * given
- */
 int main()
 {
+  printf("Welcome please enter a string");
 
+  /* we ask for a string, store the string, then ask for a specified number
+   * this number corresponds to an action within our program such as space_char
+   */
+  char *user_input;
+  int string_size;
+  
+  scanf("%s", &user_input);
+
+  string_user = (char*) malloc((string_size+1)*sizeof(char));
 }
 
 int space_char(char c)
 {
-
+  /* we check if the current char in the string is a white space */
+  char c;
+  int result;
+  result = isspace(c);
+  if (result == 0)
+    {
+      return false;
+    }
+  return true;
 }
 
 int non_space_char(char c)
 {
-
+  /* we check if the current char in the string is not a white space */
+  return true;
 }
 
 char *word_start(char *str)
 {
-
+  /* to be announced  */
 }
