@@ -1,0 +1,14 @@
+# compliler flags. -g for debug, -O3 for optimization
+CFLAGS=-g -O3
+
+# first target is built by defaut
+all: tokenizer
+
+# include file dependencies
+history.o: history.h
+tokenizer.o: tokenizer.h
+
+# $@=target, $^=prerequisites
+tokenizer: history.o tokenizer.o
+	cc -o $@ $^ $(CFLAGS)
+

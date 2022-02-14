@@ -22,19 +22,27 @@ int main()
 int space_char(char c)
 {
   /* we check if the current char in the string is a white space */
-  char c;
-  int result;
-  result = isspace(c);
-  if (result == 0)
+  char *c;
+  
+  c = calloc(sizeof(c),50);
+  if (*c != '' | *c != '\t')
     {
       return false;
     }
+  
   return true;
 }
 
 int non_space_char(char c)
 {
   /* we check if the current char in the string is not a white space */
+  char *c;
+
+  c = calloc(sizeof(c), 50);
+  if (*c == ''| *c == '\t')
+    {
+      return false;
+    }
   return true;
 }
 

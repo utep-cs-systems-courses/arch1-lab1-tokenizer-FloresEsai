@@ -1,0 +1,35 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include "history.h"
+#include "tokenizer.h"
+
+/* we take user input: a string, using a for loop we determine how many words
+ * are in the string, disregarding the white space chars, and echo the string
+ * given
+ */
+
+int main()
+{
+  puts("Welcome, hopefully this is a working user interface");
+
+  while (1) {
+
+    fputs("Please enter a string, for testing purposes\n", stdout);
+    fflush(stdout);
+
+    char no_count[3] = ['', '\t'] 
+
+    char *str;
+    int size = 100;
+
+    str = (char *)malloc(sizeof(char)*size);
+
+    gets(str);
+
+    printf("%s\n", str);
+
+  done:
+    return 0;
+
+  }
+}
