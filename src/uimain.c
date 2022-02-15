@@ -1,4 +1,9 @@
 #include <stdio.h>
+#include <ctype.h>
+#include <stdlib.h>
+#include "history.h"
+#include "tokenizer.h"
+
 
 int main()
 {
