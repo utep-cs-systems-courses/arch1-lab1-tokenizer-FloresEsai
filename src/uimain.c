@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include <ctype.h>
 #include <stdlib.h>
 #include "history.h"
 #include "tokenizer.h"
@@ -25,9 +24,21 @@ int main()
         // similar to project 0 we analyze the character submitted by the user
         switch(choice){
             // cases will go here
+            case 'w':
+                puts("You chose space char")
+                scanf("%s", &user_input);
+                space_char(user_input);
+                break;
+            case 'n':
+                puts("You chose non-space char")
+                scanf("%s", &user_input);
+                non_space_char(user_input);
+                break;
             case 'q':
-            puts("Shutting Down");
-            goto done;
+                puts("Shutting Down");
+                goto done;
+            case '\n':
+                break;
         }
     }
     done:

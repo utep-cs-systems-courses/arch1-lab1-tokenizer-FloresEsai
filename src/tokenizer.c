@@ -6,7 +6,6 @@
 int space_char(char c)
 {
     /* we check if the current char in the string is a white space */
-
     if (char c == ' ' | char c == '\t' | char c == '\n'){
         return true;
     }
@@ -42,6 +41,7 @@ int count_words(char *str)
 
 char *copy_str(char *inStr, short len)
 {
+    /* returns a allocated zero terminated vector of allocated space-seperated tokens from zero terminated str */
 
 }
 
