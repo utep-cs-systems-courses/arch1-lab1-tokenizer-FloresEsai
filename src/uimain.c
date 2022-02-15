@@ -7,15 +7,27 @@
 
 int main()
 {
-  printf("Welcome please enter a string");
+    puts("Welcome please enter a string");
 
-  /* we ask for a string, store the string, then ask for a specified number
-   * this number corresponds to an action within our program such as space_char
-   */
-  char *user_input;
-  int string_size;
+    /* we ask for a string, store the string, then ask for a specified number
+     * this number corresponds to an action within our program such as space_char
+    */
+    while (1) { // infinite while loop so that we can perform as many functions as the user requests
+        fputs("Please choose which action to perform: ", stdout);
+        fflush(stdout);
+        int choice;
+        while ((choice = getchar()) == '\n'); // ignore newlines
+        if (choice == EOF)
+            goto done;
 
-  scanf("%s", &user_input);
-
-  string_user = (char*) malloc((string_size+1)*sizeof(char));
+        // similar to project 0 we analyze the character submitted by the user
+        switch(choice){
+            // cases will go here
+            case 'q':
+            puts("Shutting Down");
+            goto done;
+        }
+    }
+    done:
+        return 0;
 }
