@@ -7,6 +7,8 @@
 
 int main()
 {
+    char user_input[100];        // allocate a designated amount of memory for user input
+    char *user_ptr = user_input; // pointer to be assigned to user_input
     puts("Welcome please enter a string");
 
     /* we ask for a string, store the string, then ask for a specified number
