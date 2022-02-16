@@ -39,7 +39,6 @@ char *word_terminator(char *word)
         // if the next index of the word is the terminator
         // we take the current index and return it as our word terminator
         // here i am also stuck
-
     }
 }
 
