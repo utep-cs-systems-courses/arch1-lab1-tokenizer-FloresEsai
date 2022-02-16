@@ -83,5 +83,5 @@ char *copy_str(char *inStr, short len)
 
 char **tokenize(char* str)
 {
-
+    /* i have to finish this by the end of the week */
 }
