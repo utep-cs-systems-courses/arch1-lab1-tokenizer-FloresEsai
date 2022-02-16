@@ -28,6 +28,7 @@ char *word_start(char *str)
     while (*str != '\0'){
         if (*str == non_space_char){
             // here is where i am stuck
+            return *str;
         }
     }
 }
