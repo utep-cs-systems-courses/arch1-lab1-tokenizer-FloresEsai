@@ -60,7 +60,7 @@ int count_words(char *str)
 
 char *copy_str(char *inStr, short len)
 {
-    /* returns a allocated zero terminated vector of allocated space-seperated tokens from zero terminated str
+    /* returns a allocated zero terminated vector of allocated space-separated tokens from zero terminated str
     * we assign a pointer to the same address as inStr
     * we create a new pointer and allocate the needed amount of space to create a new array of the same size
     * while the pointer to the string is not currently the string terminator we set the current index
