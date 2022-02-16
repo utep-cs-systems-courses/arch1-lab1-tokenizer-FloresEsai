@@ -20,4 +20,4 @@ tester: history.o tokenizer.o
 clean:
 
 	rm -f *.o tokenizer
-	rm -f *.o tester
+	rm -f *.o teste
