@@ -25,8 +25,14 @@ char *word_start(char *str)
 {
     /* returns the pointer to the first non-space char om the first word of the user input  */
     /* if the string contains no words we return the zero pointer */
-    if (*str == '\0'){return (char *) * null;}
-
+    // once you hit a non space char that becomes your word start, traverse the rest of the string
+    // until the \0 terminator is reached
+    do{
+        if (non_space_char(c:*str)){
+            return str;
+        }
+    }while(*(++str) != '\0');
+    return 0;
 }
 
 char *word_terminator(char *word)
@@ -50,6 +56,7 @@ int count_words(char *str)
 char *copy_str(char *inStr, short len)
 {
     /* returns a allocated zero terminated vector of allocated space-seperated tokens from zero terminated str */
+    // allocate space, traverse the string
 
 }
 
