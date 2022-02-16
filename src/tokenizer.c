@@ -38,7 +38,13 @@ char *word_terminator(char *word)
 int count_words(char *str)
 {
     /* returns the number of words in the user input */
-
+    int count = 0;
+    while (*str != '\0'){
+        str = word_start(str);
+        str = word_terminator(word: str);
+        count ++;
+    }
+    return count;
 }
 
 char *copy_str(char *inStr, short len)
