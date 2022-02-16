@@ -21,3 +21,5 @@ clean:
 
 	rm -f *.o tokenizer
 	rm -f *.o tester
+
+// I am unsure if I have this Makefile set up correctly to include tokenizer as well as tester
