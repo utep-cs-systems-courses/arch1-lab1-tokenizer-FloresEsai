@@ -27,7 +27,6 @@ char *word_start(char *str)
     /* if the string contains no words we return the zero pointer */
     while (*str != '\0'){
         if (*str == non_space_char){
-            // here is where i am stuck
             return *str;
         }
     }
@@ -35,12 +34,19 @@ char *word_start(char *str)
 
 char *word_terminator(char *word)
 {
-    /* returns the pointer to the char after the end of word */
-    while(*word != '\0'){
-        // if the next index of the word is the terminator
-        // we take the current index and return it as our word terminator
-        // here i am also stuck
+    /* returns the pointer to the char after the end of word
+    * if the string is empty we return NULL
+    * we then traverse the word incrementing the pointer and returning the last before the terminator
+    */
+    if(*word == '\0'){
+        printf("There is no last char.\n");
+        return NULL;
     }
+    while(*word){
+        word++;
+    }
+    word--;
+    return word
 }
 
 int count_words(char *str)
@@ -52,7 +58,7 @@ int count_words(char *str)
     // and each time we increment the count and return it once we hit \0
     while (*str != '\0'){
         str = word_start(str);
-        str = word_terminator(word:str);
+        str = word_terminator(str);
         count++;
     }
     return count;
@@ -84,4 +90,5 @@ char *copy_str(char *inStr, short len)
 char **tokenize(char* str)
 {
     /* i have to finish this by the end of the week */
+
 }
