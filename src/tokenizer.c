@@ -39,7 +39,7 @@ char *word_terminator(char *word)
     * we then traverse the word incrementing the pointer and returning the last before the terminator
     */
     if(*word == '\0'){
-        printf("There is no last char.\n");
+        printf("The string entered is empty\n");
         return NULL;
     }
     while(*word){
