@@ -89,6 +89,13 @@ char *copy_str(char *inStr, short len)
 
 char **tokenize(char* str)
 {
-    /* i have to finish this by the end of the week */
-
+    /* given a string input we traverse and using word_start and word_terminator
+    * we allocate memory using copy_string and with the created array assign
+    * each index to be a word of the string
+    */
+    while(str != '\0'){
+        word_start(str);
+        word_terminator(str);
+        copy_str(str, sizeof(str));
+    }
 }
