@@ -26,7 +26,7 @@ char *word_start(char *str)
     /* returns the pointer to the first non-space char of the first word of the user input  */
     /* if the string contains no words we return the zero pointer */
     while (*str != '\0'){
-        if (*str == non_space_char){
+        if (*str == non_space_char(*str)){
             return str;
         }
     }
