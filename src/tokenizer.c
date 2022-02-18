@@ -8,18 +8,18 @@ int space_char(char c)
     /* we check if the current char in the string is a white space */
     if (char c == ' ' | char c == '\t' | char c == '\n'){
         return true;
-    }
+    };
     return false;
-}
+};
 
 int non_space_char(char c)
 {
     /* we check if the current char in the string is not a white space */
     if (char c != ' ' | char c != '\t' | char c != '\n'){
         return true;
-    }
+    };
     return false;
-}
+};
 
 char *word_start(char *str)
 {
@@ -28,9 +28,9 @@ char *word_start(char *str)
     while (*str != '\0'){
         if (*str == non_space_char(*str)){
             return str;
-        }
-    }
-}
+        };
+    };
+};
 
 char *word_terminator(char *word)
 {
@@ -41,13 +41,13 @@ char *word_terminator(char *word)
     if(*word == '\0'){
         printf("The string entered is empty\n");
         return NULL;
-    }
+    };
     while(*word){
         word++;
-    }
+    };
     word--;
     return word
-}
+};
 
 int count_words(char *str)
 {
@@ -60,9 +60,9 @@ int count_words(char *str)
         str = word_start(str);
         str = word_terminator(str);
         count++;
-    }
+    };
     return count;
-}
+};
 
 char *copy_str(char *inStr, short len)
 {
@@ -75,9 +75,9 @@ char *copy_str(char *inStr, short len)
         inStr++;
         string_to_be_copied++;
      // we increment the pointers of both strings
-    }
+    };
     return to_be_copied;
-}
+};
 
 char **tokenize(char* str)
 {
@@ -89,5 +89,5 @@ char **tokenize(char* str)
         word_start(str);
         word_terminator(str);
         copy_str(str, sizeof(str));
-    }
-}
+    };
+};

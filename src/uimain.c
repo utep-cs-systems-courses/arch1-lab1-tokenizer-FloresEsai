@@ -39,8 +39,8 @@ int main()
                 goto done;
             case '\n':
                 break;
-        }
-    }
+        };
+    };
     done:
         return 0;
-}
+};

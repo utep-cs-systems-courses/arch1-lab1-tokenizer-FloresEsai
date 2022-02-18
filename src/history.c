@@ -7,7 +7,7 @@ struct Node
 {
     char[] data;           // string data
     struct Node* next;     // pointer to next node
-}
+};
 
 struct Node* newNode(char[] data)
 {
@@ -18,7 +18,7 @@ struct Node* newNode(char[] data)
     node->next = NULL;
 
     return node;
-}
+};
 
 struct Node* construct_list()
 {
@@ -38,5 +38,5 @@ struct Node* construct_list()
 
     // return a pointer to the first node in the list
     return head;
-}
+};
 
