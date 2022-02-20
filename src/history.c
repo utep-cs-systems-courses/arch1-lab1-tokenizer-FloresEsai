@@ -1,42 +1,25 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "history,h"
+#include "history.h"
+#include "tokenizer.h"
 
-// in order to implement the history method we will need a linked list data structure
-struct Node
-{
-    char[] data;           // string data
-    struct Node* next;     // pointer to next node
-};
+List *init_history(){
+    List *list = malloc(sizeof(List)); // allocates memory the size of the list
+    list->root = malloc(sizeof(Item)); // allocates memory for the initial item known as root
+    return list;
+}
 
-struct Node* newNode(char[] data)
-{
-    // allocate a new node in a linked list and using malloc set its data
-    struct Node* node = (struct Node*)malloc(sizeof(struct Node));
+void add_history(List *list, char *str){
+    int identifier = 1;
+    Item *temp = list->root;
 
-    // set the .next pointer of the new node to point to null
-    node->next = NULL;
+    while(temp->next != 0){
+        temp = temp->next;
+        identifier++;
+    }
 
-    return node;
-};
-
-struct Node* construct_list()
-{
-    // construct three linked list nodes and rearrange pointers to construct a list
-    struct Node* one = NULL;
-    struct Node* two = NULL;
-    struct Node* three = NULL;
-
-    one = (struct Node*)malloc(sizeof(struct Node));
-    two = (struct Node*)malloc(sizeof(struct Node));
-    three = (struct Node*)malloc(sizeof(struct Node));
-
-    struct Node* head = one;
-    one->next = two;
-    two->next = three;
-    three->next = NULL;
-
-    // return a pointer to the first node in the list
-    return head;
-};
-
+    // allocate memory for the given string
+    temp->next = malloc(sizeof(Item));
+    temp->next->str = copy_str(str, sizeof(str));
+    temp->next->identifier = identifier;
+}
