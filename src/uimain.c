@@ -1,46 +1,58 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "history.h"
 #include "tokenizer.h"
+#include "history.h"
 
+int main(){
 
-int main()
-{
-    char user_input[100];        // allocate a designated amount of memory for user input
-    char *user_ptr = user_input; // pointer to be assigned to user_input
-    puts("Welcome please enter a string");
+  char input[100];
 
-    /* we ask for a string, store the string, then ask for a specified number
-     * this number corresponds to an action within our program such as space_char
-    */
-    while (1) { // infinite while loop so that we can perform as many functions as the user requests
-        fputs("Please choose which action to perform: ", stdout);
-        fflush(stdout);
-        int choice;
-        while ((choice = getchar()) == '\n'); // ignore newlines
-        if (choice == EOF)
-            goto done;
+  //declares for the list needed if they ask for a return
+  List *history = init_history();
 
-        // similar to project 0 we analyze the character submitted by the user
-        switch(choice){
-            // cases will go here
-            case 'w':
-                puts("You chose space char")
-                scanf("%s", &user_input);
-                space_char(user_input);
-                break;
-            case 'n':
-                puts("You chose non-space char")
-                scanf("%s", &user_input);
-                non_space_char(user_input);
-                break;
-            case 'q':
-                puts("Shutting Down");
-                goto done;
-            case '\n':
-                break;
-        };
-    };
-    done:
-        return 0;
-};
+  //allows the program to run forever
+  while(1){
+    printf("\nEnter one of the following:\n");
+
+    printf("1.'q'to quit\n 2. 'w' to type a sentence\n 3.'!' followed by how far you would like to go back\n 4. 'h' for the history of the program\n");
+
+    printf("$");
+
+    fgets(input,100,stdin);
+
+    if(input[0] == 'q'){
+      printf("exiting now\n");
+      free_history(history);
+      return 0;//exits the while loop
+
+    }
+    else if(input[0] == 'w'){//for the sentence
+
+      printf("Please enter your sentence:\n$");
+
+      fgets(input,100,stdin);
+      char **tokens = tokenize(input);
+      print_tokens(tokens);
+      add_history(history, input);// since we need to keep track of history
+      free_tokens(tokens);
+    }
+    else if(input[0] == '!'){
+      char *hist = get_history(history,atoi(input+1));// atoi is used to convert a string argument into an integer type
+      char **tokens = tokenize(hist);
+
+      printf("Retrieved history: %s\n", hist);
+
+      printf("Tokenized history: %s\n", tokens);
+
+      print_tokens(tokens);
+      free_tokens(tokens);
+    }
+    else if(input[0] == 'h'){
+      print_history(history);
+
+    }
+    else{
+      printf("enter a valid answer\n");
+    }
+  }
+}
