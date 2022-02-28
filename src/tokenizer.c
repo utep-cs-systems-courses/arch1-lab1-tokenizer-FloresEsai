@@ -1,44 +1,39 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "tokenizer.h"
+#include "history.h"
 
 int space_char(char c)
 {
     /* we check if the current char in the string is a white space */
-  if (c == ' ' | c == '\t'){
-        return 1;
-    }
-    return 0;
+    return c == ' ' || c == '\t' ? 1:0;
 }
 
 int non_space_char(char c)
 {
     /* we check if the current char in the string is not a white space */
-    if (c != ' ' | c != '\t'){
-        return 1;
-    }
-    return 0;
+    return c != ' ' && c != '\t' && c != '\0' ? 1 : 0;
 }
 
 char *word_start(char *str)
 {
-  int index;
-    for(index = 0; *(str + 1) != '\0'; index++){
-        if(non_space_char(*(str + 1))){
-            return str + 1;
+    int index;
+        for(index = 0; *(str + 1) != '\0'; index++){
+            if(non_space_char(*(str + 1))){
+                return str + 1;
+            }
         }
-    }
     return str + 1; // if this line is reached then the beginning of the input is the start
 }
 
 char *word_terminator(char *word)
 {
-  int index;
-    for(index = 0; *(word + index) != '\0'; index++){
-        if(space_char(index)){
-            return word + index;
+    int index;
+        for(index = 0; *(word + index) != '\0'; index++){
+            if(space_char(index)){
+                return word + index;
+            }
         }
-    }
     return word + index;
 }
 
