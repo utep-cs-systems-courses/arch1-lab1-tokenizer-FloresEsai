@@ -74,20 +74,19 @@ char *copy_str(char *inStr, short len)
 
 char **tokenize(char* str)
 {
-    int word_count = count_words(str); // we gather the number of words in the string using count_words
-    char **tokens = malloc((word_count+1) * sizeof(char *)); // allocate space for the list going to contain the tokenized words
+  int word_count = count_words(str);
+  char **tokens = malloc(sizeof(char*) * (word_count + 1));
 
-    char *tokenized_string = str;
-    int index;
+  str = word_start(str);
+  for(int i = 0; i < word_count; ++i){
+    char* terminator = word_terminator(str);
+    tokens[i] = copy_str(str, terminator - str);
+    str = word_start(terminator);
+  }
 
-    for(index = 0; index < word_count; index++){
-        tokenized_string = word_start(tokenized_string); // the next word for tokenization
-        int length = sizeof(tokenized_string);
-        tokens[index] = copy_str(tokenized_string, length);
-        tokenized_string = word_terminator(tokenized_string);
-    }
-    tokens[index] = '\0'; // set the final token to null/terminator
-    return tokens;
+  char **terminator = tokens + word_count;
+  *terminator = 0;
+  return tokens;
 }
 
 void print_tokens(char **tokens)

@@ -11,38 +11,37 @@ List *init_history(){
 
 //
 void add_history(List *list, char *str){
-    int identifier = 1;
+    int id = 1;
     Item *temp = list->root;
 
     while(temp->next != 0){
         temp = temp->next;
-        identifier++;
+        id++;
     }
 
     // allocate memory for the given string
     temp->next = malloc(sizeof(Item));
     temp->next->str = copy_str(str, sizeof(str));
-    temp->next->identifier = identifier;
+    temp->next->id = id;
 }
 
 // we assign a pointer to the root/head of the list
 // until we reach the end of the list we return the node corresponding to the identifier input
-char *get_history(List *list, int identifier){
+char *get_history(List *list, int id){
     Item *item = list->root;
-    while(temp != 0){
-        if(temp->identifier == identifier){ // if we reach the desired token we return it to the user
-            return temp->str;
+    while(item != 0){
+        if(item->id == id){ // if we reach the desired token we return it to the user
+            return item->str;
         }
-        temp = temp->next;
+        item = item->next;
     }
-    return printf("Token Not Found"); // if the desired token is not found print error statement
 }
 
 //
 void print_history(List *list){
     Item *temp = list->root->next;
     while(temp != 0){
-        printf("%d. %s", temp->identifier, temp->str);
+        printf("%d. %s", temp->id, temp->str);
         temp = temp->next;
     }
 }
